@@ -1,0 +1,22 @@
+//- Extend the base layout
+extends layout
+
+//- Define the content block
+block content
+  h1 Edit Task
+  //- Form for updating an existing task (Update operation)
+  form(action=`/tasks/${task.id}` method="POST")
+    input(type="text" name="title" value=task.title required)
+    textarea(name="description")= task.description
+    select(name="status")
+      option(value="To Do" selected=task.status === 'To Do') To Do
+      option(value="In Progress" selected=task.status === 'In Progress') In Progress
+      option(value="Done" selected=task.status === 'Done') Done
+    input(type="date" name="dueDate" value=task.dueDate ? task.dueDate.toISOString().split('T')[0] : '')
+    select(name="assignedTo")
+      option(value="") Unassigned
+      //- Dynamically generate options for team members
+      each member in teamMembers
+        option(value=member.id selected=task.assignedTo === member.id)= member.name
+    button(type="submit") Update Task
+

@@ -1,0 +1,27 @@
+{
+    "name": "express-pug-testing",
+    "version": "1.0.0",
+    "description": "Express app with Pug templating and Jest/Supertest for testing",
+    "main": "app.js",
+    "scripts": {
+      "start": "node app.js",
+      "test": "jest",
+      "test:coverage": "jest --coverage"
+    },
+    "dependencies": {
+      "express": "^4.17.1",
+      "pug": "^3.0.2"
+    },
+    "devDependencies": {
+      "jest": "^27.0.6",
+      "supertest": "^6.1.3"
+    },
+    "jest": {
+      "testEnvironment": "node",
+      "coveragePathIgnorePatterns": [
+        "/node_modules/"
+      ]
+    }
+  }
+  
+  

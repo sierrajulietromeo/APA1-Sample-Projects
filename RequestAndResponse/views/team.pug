@@ -1,0 +1,37 @@
+//- Extend the base layout
+extends layout
+
+//- Define the content block
+block content
+  h1 Team Members
+  
+  //- Form for creating a new team member (Create operation)
+  h2 Add New Team Member
+  form(action="/team" method="POST")
+    input(type="text" name="name" placeholder="Name" required)
+    input(type="email" name="email" placeholder="Email" required)
+    input(type="text" name="role" placeholder="Role")
+    button(type="submit") Add Team Member
+
+  //- Display existing team members (Read operation)
+  h2 Team List
+  if teamMembers.length
+    table
+      thead
+        tr
+          th Name
+          th Email
+          th Role
+          th Action
+      tbody
+        each member in teamMembers
+          tr
+            td(data-label="Name")= member.name
+            td(data-label="Email")= member.email
+            td(data-label="Role")= member.role
+            td(data-label="Action")
+              form(action=`/team/${member.id}/delete` method="POST")
+                button(type="submit") Delete
+  else
+    p No team members found.
+

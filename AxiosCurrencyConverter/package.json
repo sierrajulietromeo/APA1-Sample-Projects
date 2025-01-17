@@ -1,0 +1,14 @@
+{
+    "name": "exchange-rate-api",
+    "version": "1.0.0",
+    "description": "A simple Exchange Rate API demo using axios (no API key required)",
+    "main": "app.js",
+    "scripts": {
+      "start": "node app.js"
+    },
+    "dependencies": {
+      "axios": "^0.21.1"
+    }
+  }
+  
+  

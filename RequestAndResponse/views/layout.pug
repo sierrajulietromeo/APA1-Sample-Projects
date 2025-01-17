@@ -1,0 +1,22 @@
+//- Base layout template for all pages
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Task Management System
+    //- Link to the external CSS file
+    link(rel="stylesheet", href="/styles.css")
+  body
+    //- Navigation bar
+    nav
+      ul
+        li
+          a(href="/") Tasks
+        li
+          a(href="/team") Team
+    //- Main content container
+    .container
+      //- Content block to be filled by child templates
+      block content
+
