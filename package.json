@@ -1,6 +1,10 @@
 {
   "type": "module",
+  "scripts": {
+      "start": "node index.js"
+  },
   "dependencies": {
     "inquirer": "^12.3.2"
+  
   }
 }
