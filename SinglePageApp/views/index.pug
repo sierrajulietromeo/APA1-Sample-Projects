@@ -3,22 +3,28 @@ html(lang="en")
   head
     meta(charset="UTF-8")
     meta(name="viewport" content="width=device-width, initial-scale=1.0")
-    title Recipe - #{recipe.name}
+    title Recipe Collection
     link(rel="stylesheet", href="/styles.css")
 
   body
     .container
-      h1= recipe.name
+      h1 Recipe Collection
       
-      .recipe
-        section
-          h2 Ingredients
-          ul
-            each ingredient in recipe.ingredients
-              li= ingredient
+      each recipe in recipes
+        .recipe
+          h2= recipe.name
+          
+          section
+            h3 Ingredients
+            ul
+              each ingredient in recipe.ingredients
+                li= ingredient
 
-        section
-          h2 Instructions
-          ol
-            each instruction in recipe.instructions
-              li= instruction
+          section
+            h3 Instructions
+            ol
+              each instruction in recipe.instructions
+                li= instruction
+
+      if !recipes.length
+        p No recipes found.
